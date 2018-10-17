@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 # Required env variables:
-#   $BUILD_GRADLE_FILE
+#   $ARTIFACT_BUILD_FILE
 #   $VERSION
 
 # Update version number in build.gradle
 #
-sed -i -e "s/version = 'RELEASEVERSION'/version = '$VERSION'/" $BUILD_GRADLE_FILE
+sed -i -e "s/version = 'RELEASEVERSION'/version = '$VERSION'/" $ARTIFACT_BUILD_FILE
