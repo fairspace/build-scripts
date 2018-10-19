@@ -16,7 +16,11 @@ CHARTVERSION=$(sed -n 's/^version: //p' charts/${APPNAME}/Chart.yaml)
 echo Chart version number is $CHARTVERSION
 
 # Add chart to helm repo
-az acr helm push ${APPNAME}-${CHARTVERSION}.tgz -n fairspace
+if [[ $CHARTVERSION == *SNAPSHOT ]]; then
+    PUSH_PARAMS="--force"
+fi
+
+az acr helm push ${APPNAME}-${CHARTVERSION}.tgz -n fairspace $PUSH_PARAMS
 
 # Cleanup
 rm -rf $APPNAME*.tgz
