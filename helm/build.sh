@@ -8,5 +8,6 @@ rm -rf *.tgz
 
 # Build
 rm -rf requirements.lock
+helm repo update
 helm dependency build
 helm lint
