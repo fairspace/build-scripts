@@ -11,12 +11,12 @@
 # Go back to the branch itself
 git stash --all
 git checkout $TRAVIS_BRANCH
-git pull
 
 # Ensure the latest code is on the snapshot branch as well
-git checkout $SNAPSHOT_BRANCH
+git fetch
+git checkout -b $SNAPSHOT_BRANCH --track origin/$SNAPSHOT_BRANCH
 git pull
-git merge $TRAVIS_BRANCH --no-edit  
+git merge $TRAVIS_BRANCH --no-edit
 
 # Set new version
 echo $NEWVERSION > VERSION
