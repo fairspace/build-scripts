@@ -12,9 +12,13 @@
 git stash --all
 git checkout $TRAVIS_BRANCH
 
+# Have git fetch the other branches as well.
+# See https://github.com/travis-ci/travis-ci/issues/4806#issuecomment-351808322
+git config remote.origin.fetch refs/heads/*:refs/remotes/origin/*
+
 # Ensure the latest code is on the snapshot branch as well
 git fetch
-git checkout -b $SNAPSHOT_BRANCH --track origin/$SNAPSHOT_BRANCH
+git checkout $SNAPSHOT_BRANCH
 git pull
 git merge $TRAVIS_BRANCH --no-edit
 
