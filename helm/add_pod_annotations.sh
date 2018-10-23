@@ -9,4 +9,4 @@
 #
 
 # Add a pod annotation in the values.yaml file
-echo -e "\npodAnnotations:\n  commit: $COMMIT_ID" >> charts/${APPNAME}/values.yaml
+echo -e "\npodAnnotations:\n  commit: \"$COMMIT_ID\"" >> charts/${APPNAME}/values.yaml
