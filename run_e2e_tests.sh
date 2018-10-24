@@ -17,7 +17,8 @@ node_modules/.bin/cypress run
 
 result=$?
 
+
 # Cleanup
 rm -rf e2e-tests
 
-exit $?
+exit $result
