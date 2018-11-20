@@ -2,6 +2,7 @@
 
 # Generic properties
 export DOCKER_REPO=fairspace.azurecr.io
+export ORG=fairspace
 export CHART_REPO="https://fairspace.azurecr.io/helm/v1/repo"
 export HELM_VERSION="2.11.0"
 export KUBECTL_VERSION="1.12.0"
