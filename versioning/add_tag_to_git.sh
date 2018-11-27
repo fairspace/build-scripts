@@ -22,7 +22,7 @@ if [ ! -z "$GIT_TAG_FILES" ]
 then git add $GIT_TAG_FILES
 fi
 
-git commit -m "Release version $VERSION [full build]" --allow-empty # if first release then no version update is performed
+git commit -m "Release version $VERSION [skip ci]" --allow-empty # if first release then no version update is performed
 git tag -fa v$VERSION -m "Release version $VERSION"
 git remote add origin-authenticated $(git remote get-url origin | sed s/github.com/$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/i)
 git push origin-authenticated v$VERSION
