@@ -5,7 +5,7 @@ os:
 
 sudo: required
 
-language: go
+language: generic
 
 script:
 - ./ci-syntax-check.sh
