@@ -1,0 +1,16 @@
+dist: xenial
+
+os:
+- linux
+
+sudo: required
+
+language: go
+
+script:
+- ./ci-syntax-check.sh
+
+notifications:
+  slack:
+    rooms:
+     - secure: "bSQE9H4uyyXpCsfPbiexExHNWMoLX/06gkOcpnn/ediO+XUXmsrN3yLixPtXeWR5CV/uxU1YL6AhW8PZco9FXFfjgP8uDBQ5qidHgRFQEvroYrWieD8cUhrAGcXC2pIuWjwuHlqs0zkVuFCdEIxqgHEeujONfwt5TvxBgH1E8qrg1XuUCnACv7lMvFRxLIlbxWNOINJNt0dMHauCBuHV4IRqrKkreymSYgTC6QfQL3vUGu+GOwsLckXoXJ4glCXcvEiV+9s5P9hufqEpn6cqk8dBbOIIOusqpbRCMM3sfUfmMw2ZI39+WDjSGO/ZsaQdOmmjp87EgWcoSJlD7o8BmXmFka5qQ3I3zFw8au5YBj6Jzr1NHJ9Qfv6SbIQLSXXEOppDaHArJtIR/SETUKWkyEV/g1eDNtmcIrQ0MCYhjECJK4TANlqa5bGBXB3S/djx/31jN/M/KLiV87iD8fYiHQVhUHnppZ5/AyfE/q11u4BWo6WbtPPl6q8qwX2UEBTbJfv36Ctfn8Fv5Q/M7VNFIuot+kwTF8sKw57sqnh5GEFAkamxVp0ANpJP1b/Rkqtnpjb3UbJ9hRxfni6H4F48i/fe0IMztgNCsT1ELnViq+uHoyQU6fzDshvZ7IOSQIF1n/J4jLmI0D+NA8s+UvclVJ8T7hNWn730/Yy8Qcpg1XA="
