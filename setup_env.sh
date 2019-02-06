@@ -1,11 +1,21 @@
 #!/bin/bash
 
 # Generic properties
-export DOCKER_REPO=fairspace.azurecr.io
-export ORG=fairspace
-export CHART_REPO="https://fairspace.azurecr.io/helm/v1/repo"
 export HELM_VERSION="2.11.0"
 export KUBECTL_VERSION="1.12.0"
+
+# Platform-specific settings
+if [ "$DEPLOY_PLATFORM" = "GCP" ]
+then DOCKER_REPO=eu.gcr.io
+     ORG=fairspace-207108
+     # shellcheck disable=SC2034
+     CHART_REPO="gs://fairspace-helm"
+else echo "\$DEPLOY_PLATFORM not set to \"GCP\". Loading Docker/Helm settings for Azure."
+     DOCKER_REPO=fairspace.azurecr.io
+     ORG=fairspace
+     # shellcheck disable=SC2034
+     CHART_REPO="https://fairspace.azurecr.io/helm/v1/repo"
+fi
 
 # Determine whether or not we should perform a release
 if [[ "$TRAVIS_BRANCH" = "$SNAPSHOT_BRANCH" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
