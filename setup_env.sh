@@ -21,16 +21,21 @@ if [[ "$TRAVIS_BRANCH" = "$SNAPSHOT_BRANCH" ]]; then
     export VERSION_POSTFIX="-SNAPSHOT"
 fi
 
-export CURRENTVERSION="$(cat VERSION)"
+CURRENTVERSION="$(cat VERSION)"
+export CURRENTVERSION
+
 export VERSION="${CURRENTVERSION}${VERSION_POSTFIX}"
-export NEWVERSION="$(./ci/versioning/nextversion.sh ${CURRENTVERSION})"
+
+NEWVERSION="$(./ci/versioning/nextversion.sh "${CURRENTVERSION}")"
+export NEWVERSION
 
 # Set container name
 export CONTAINER_NAME="${DOCKER_REPO}/${ORG}/${APPNAME}:${VERSION}"
 
 # Set the commit id to either the actual commit hash or to the tag for actual releases
 if [[ "$TRAVIS_BRANCH" = "$SNAPSHOT_BRANCH" ]]; then
-    export COMMIT_ID=$(git log --pretty=format:'%h' -n 1)
+    COMMIT_ID=$(git log --pretty=format:'%h' -n 1)
+    export COMMIT_ID
 else
     export COMMIT_ID="v${CURRENTVERSION}"
 fi;
