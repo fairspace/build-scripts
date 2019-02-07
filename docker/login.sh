@@ -7,4 +7,4 @@
 #   $DOCKER_USERNAME
 #   $DOCKER_PASSWORD
 #
-echo "${DOCKER_PASSWORD}" | docker login ${DOCKER_REPO} -u "${DOCKER_USERNAME}" --password-stdin
+echo "${DOCKER_PASSWORD}" | docker login "${DOCKER_REPO}" -u "${DOCKER_USERNAME}" --password-stdin
