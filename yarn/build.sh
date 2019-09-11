@@ -2,6 +2,7 @@
 
 set -e
 
+npm config set @fairspace:registry https://api.bintray.com/npm/thehyve/fairspace-npm
 # The environment variables are set are due to the version of gcc
 # needing to be at least 4.9 to properly install the
 # jsonld dependency rdf-canonize.
