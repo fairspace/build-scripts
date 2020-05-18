@@ -4,4 +4,4 @@
 # - GRADLE_OPTIONS
 
 # shellcheck disable=SC2086
-./gradlew clean build test $GRADLE_OPTIONS
+./gradlew wrapper clean build test $GRADLE_OPTIONS
