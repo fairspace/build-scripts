@@ -9,4 +9,5 @@ then # This is a workaround for not being able to provide a GCP service account
 fi
 
 helm repo update
+echo "Fetching version $VERSION"
 helm upgrade --install "${APPNAME}-${ENVIRONMENT}" "fairspace/${APPNAME}" "--namespace=${APPNAME}-${ENVIRONMENT}" --version "$VERSION" -f "${DEPLOYMENT_CONFIG_DIR}/${ENVIRONMENT}-values.yaml" --timeout 1500
