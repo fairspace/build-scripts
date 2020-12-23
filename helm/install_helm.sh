@@ -11,7 +11,7 @@ wget --no-clobber "https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_V
 tar xvfz "$HOME/downloads/helm-v${HELM_VERSION}.tar.gz" --directory "$HOME"
 
 export PATH="$HOME/linux-amd64/:$PATH"
-helm init --client-only
+helm init --client-only --stable-repo-url https://charts.helm.sh/stable
 
 if [ "$DEPLOY_PLATFORM" = "GCP" ]
 then  echo "Installing Helm GCS plugin ..."
