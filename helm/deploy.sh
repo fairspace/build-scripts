@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ENVIRONMENT=${1:-ci}
+EXTRA_ARGS=${@:2}
 
 if [ "$DEPLOY_PLATFORM" = "GCP" ]
 then # This is a workaround for not being able to provide a GCP service account
@@ -10,4 +11,4 @@ fi
 
 helm repo update
 echo "Fetching version $VERSION"
-helm upgrade --install "${APPNAME}-${ENVIRONMENT}" "fairspace/${APPNAME}" "--namespace=${APPNAME}-${ENVIRONMENT}" --version "$VERSION" -f "${DEPLOYMENT_CONFIG_DIR}/${ENVIRONMENT}-values.yaml" --timeout 1500
+helm upgrade --install "${APPNAME}-${ENVIRONMENT}" "fairspace/${APPNAME}" "--namespace=${APPNAME}-${ENVIRONMENT}" --version "$VERSION" -f "${DEPLOYMENT_CONFIG_DIR}/${ENVIRONMENT}-values.yaml" --timeout 1500 $EXTRA_ARGS
