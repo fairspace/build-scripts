@@ -24,5 +24,7 @@ fi
 
 git commit -m "Release version $VERSION [skip ci]" --allow-empty # if first release then no version update is performed
 git tag -fa v$VERSION -m "Release version $VERSION"
-git remote add origin-authenticated $(git remote get-url origin | sed s/github.com/$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/i)
+git remote add origin-authenticated $(git remote get-url origin | sed s/github.com/$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/i) || {
+  echo "Adding remote origin-authenticated failed or it already exists."
+}
 git push origin-authenticated v$VERSION
