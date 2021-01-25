@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Generic properties
-export HELM_VERSION="2.11.0"
+export HELM_VERSION="2.14.3"
 export KUBECTL_VERSION="1.12.0"
 
 # Platform-specific settings
