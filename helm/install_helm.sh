@@ -15,5 +15,5 @@ helm init --client-only --stable-repo-url https://charts.helm.sh/stable
 
 if [ "$DEPLOY_PLATFORM" = "GCP" ]
 then  echo "Installing Helm GCS plugin ..."
-      helm plugin install https://github.com/hayorov/helm-gcs.git
+      helm plugin install https://github.com/hayorov/helm-gcs.git --version 0.2.2
 fi
