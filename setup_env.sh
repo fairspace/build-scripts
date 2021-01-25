@@ -8,8 +8,6 @@ export KUBECTL_VERSION="1.12.0"
 if [ "$DEPLOY_PLATFORM" = "GCP" ]
 then export DOCKER_REPO=eu.gcr.io
      export ORG=fairspace-207108
-     # shellcheck disable=SC2034
-     export CHART_REPO="gs://fairspace-helm"
 else echo "\$DEPLOY_PLATFORM not set to \"GCP\". Loading Docker/Helm settings for Azure."
      export DOCKER_REPO=fairspace.azurecr.io
      export ORG=fairspace
