@@ -3,11 +3,9 @@
 ENVIRONMENT=${1:-ci}
 EXTRA_ARGS=${@:2}
 
-if [ "$DEPLOY_PLATFORM" = "GCP" ]
-then # This is a workaround for not being able to provide a GCP service account
-     # for the GCS plugin directly. See https://github.com/nouney/helm-gcs/issues/12
-     export GOOGLE_APPLICATION_CREDENTIALS=/home/travis/ci-service-account.json
-fi
+# This is a workaround for not being able to provide a GCP service account
+# for the GCS plugin directly. See https://github.com/nouney/helm-gcs/issues/12
+export GOOGLE_APPLICATION_CREDENTIALS=/home/travis/ci-service-account.json
 
 helm repo update
 echo "Fetching version $VERSION"

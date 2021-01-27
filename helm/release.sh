@@ -3,10 +3,6 @@
 # Required env variables:
 #   $APPNAME
 #   $VERSION
-#
-#   $GITHUB_USERNAME
-#   $GITHUB_PASSWORD
-#
 
 # Package chart
 helm package "charts/${APPNAME}"
@@ -28,13 +24,8 @@ if [[ $VERSION == *SNAPSHOT ]]; then
     fi
 fi
 
-if [ "$DEPLOY_PLATFORM" = "GCP" ]
-then  echo "Pushing package to GCS repository ..."
-      helm gcs push "${APPNAME}-${VERSION}.tgz" fairspace --public $DEPLOY_OPTIONS
-else  echo "Pushing package to Azure container registry ..."
-      az acr helm push "${APPNAME}-${VERSION}.tgz" -n fairspace $DEPLOY_OPTIONS
-fi
+echo "Pushing package to GCS repository ..."
+helm gcs push "${APPNAME}-${VERSION}.tgz" fairspace-gcs --public $DEPLOY_OPTIONS
 
 # Cleanup
 rm -rf "$APPNAME*.tgz"
-
