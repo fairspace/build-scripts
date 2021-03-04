@@ -2,6 +2,7 @@
 
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo add elastic https://helm.elastic.co
+helm repo add codecentric https://codecentric.github.io/helm-charts
 
 if [[ "$NEED_INTERNAL_HELM" ]]
 then
