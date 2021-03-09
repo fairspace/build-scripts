@@ -5,10 +5,8 @@ export HELM_VERSION="2.14.3"
 export KUBECTL_VERSION="1.12.0"
 
 # Platform-specific settings
-if [ "$DEPLOY_PLATFORM" = "GCP" ]
-then export DOCKER_REPO=eu.gcr.io
-     export ORG=fairspace-207108
-fi
+export DOCKER_REPO=eu.gcr.io
+export ORG=fairspace-207108
 
 # Determine whether or not we should perform a release
 if [[ "$TRAVIS_BRANCH" = "$SNAPSHOT_BRANCH" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
