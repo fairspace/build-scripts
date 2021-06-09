@@ -2,4 +2,4 @@
 
 ENVIRONMENT=${1:-ci}
 
-helm delete --purge ${APPNAME}-${ENVIRONMENT}
+helm uninstall "${APPNAME}-${ENVIRONMENT}"
