@@ -9,4 +9,4 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/travis/ci-service-account.json
 
 helm repo update
 echo "Fetching version $VERSION"
-helm upgrade --install "${APPNAME}-${ENVIRONMENT}" "fairspace/${APPNAME}" --namespace "${APPNAME}-${ENVIRONMENT}" --version "$VERSION" -f "${DEPLOYMENT_CONFIG_DIR}/${ENVIRONMENT}-values.yaml" --timeout 1500 $EXTRA_ARGS
+helm upgrade --install "${APPNAME}-${ENVIRONMENT}" "fairspace/${APPNAME}" --namespace "${APPNAME}-${ENVIRONMENT}" --version "$VERSION" -f "${DEPLOYMENT_CONFIG_DIR}/${ENVIRONMENT}-values.yaml" --timeout "1500s" $EXTRA_ARGS
