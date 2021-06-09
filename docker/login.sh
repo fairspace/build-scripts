@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 # Required env variables:
-#   $CONTAINER_NAME
-#
 #   $DOCKER_REPO
 #   $DOCKER_USERNAME
 #   $DOCKER_PASSWORD
