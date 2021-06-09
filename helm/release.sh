@@ -13,7 +13,7 @@ helm package "charts/${APPNAME}"
 # non-snapshot versions should never be overwritten
 if [[ $VERSION == *SNAPSHOT ]]; then
 
-    helm fetch -d /tmp "fairspace/$APPNAME" --version "$VERSION" >& /dev/null
+    helm pull -d /tmp "fairspace/$APPNAME" --version "$VERSION" >& /dev/null
 
     # If the exit status is not 0, the chart does not exist yet
     # If the exit status is 0, the chart does exist already

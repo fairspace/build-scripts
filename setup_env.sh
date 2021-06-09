@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Generic properties
-export HELM_VERSION="2.14.3"
-export KUBECTL_VERSION="1.12.0"
+export HELM_VERSION="3.6.0"
+export KUBECTL_VERSION="1.17.17"
 
 # Platform-specific settings
 export DOCKER_REPO=eu.gcr.io
