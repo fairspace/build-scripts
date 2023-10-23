@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$DEPLOY_PLATFORM" = "GCP" ]
+if [[ "$DEPLOY_PLATFORM" = "GCP" ]] || [[ "$RELEASE_PLATFORM" = "GCP" ]]
 then echo "Installing Google Cloud SDK ..."
      "$BUILD_SCRIPTS_DIR/gcp/install.sh"
      echo "Configuring Google Cloud SDK ..."
